@@ -35,10 +35,10 @@ pub struct EntryTotals {
 impl EntryTotals {
     pub fn add_metrics(&self, ts: u64, base: String, result: &mut Vec<Serie>) {
         self.branches.add_metrics(ts, format!("{base}.branches"), result);
-        self.branches.add_metrics(ts, format!("{base}.functions"), result);
-        self.branches.add_metrics(ts, format!("{base}.instantiations"), result);
-        self.branches.add_metrics(ts, format!("{base}.lines"), result);
-        self.branches.add_metrics(ts, format!("{base}.regions"), result);
+        self.functions.add_metrics(ts, format!("{base}.functions"), result);
+        self.instantiations.add_metrics(ts, format!("{base}.instantiations"), result);
+        self.lines.add_metrics(ts, format!("{base}.lines"), result);
+        self.regions.add_metrics(ts, format!("{base}.regions"), result);
     }
 }
 
@@ -57,6 +57,6 @@ impl Report {
         if let Some(notcovered) = self.notcovered {
             result.push(Serie::new(format!("{base}.notcovered"), Type::Gauge).add_point(Point::new(ts, notcovered as f64)));
         }
-        result.push(Serie::new(format!("{base}.percent"), Type::Rate).add_point(Point::new(ts, self.percent)));
+        result.push(Serie::new(format!("{base}.percent"), Type::Gauge).add_point(Point::new(ts, self.percent)));
     }
 }
