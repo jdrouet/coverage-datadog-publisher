@@ -11,6 +11,10 @@ cargo llvm-cov --json --output-path cov.json
 coverate-datadog-publisher \
     --datadog-api-key <your datadog api key> \
     --datadog-site https://api.datadoghq.eu \ # optional but if you work in europe, use this
+    --project-name <name of the project> \ # optional
+    --commit-hash $(git rev-parse HEAD) \ # optional
+    --branch-name $(git rev-parse --abbrev-ref HEAD) \ # optional
+    --series-name ci.coverage \ # optional
     ./cov.json
 ```
 
