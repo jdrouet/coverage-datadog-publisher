@@ -1,8 +1,15 @@
 [package]
 name = "coverage-datadog-publisher"
 description = "Push your code coverage to datadog"
+authors = ["Jeremie Drouet <jeremie.drouet@gmail.com>"]
+exclude = [".env", "cov.json"]
+documentation = "https://docs.rs/coverage-datadog-publisher"
+homepage = "https://github.com/jdrouet/coverage-datadog-publisher"
+repository = "https://github.com/jdrouet/coverage-datadog-publisher"
 version = "0.1.0"
 edition = "2021"
+readme = "readme.md"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
